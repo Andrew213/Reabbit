@@ -1,8 +1,20 @@
-import App, { AppContext, AppProps } from 'next/app';
+import { ReactElement } from 'react';
 import '@styles/global.scss';
+import { Session } from 'next-auth';
+import App, { AppContext, AppProps } from 'next/app';
+import { getSession, GetSessionParams, SessionProvider } from 'next-auth/react';
 
-function HomePage() {
-    return <div className="foo">Welcome to Ne123xt.js!</div>;
+interface AppType extends AppProps {
+    session: Session;
 }
 
-export default HomePage;
+const Root = ({ Component, pageProps: { session, ...pageProps } }: AppType): ReactElement => {
+    console.log(`session`, session);
+    return (
+        <SessionProvider session={session}>
+            <Component {...pageProps} />
+        </SessionProvider>
+    );
+};
+
+export default Root;
