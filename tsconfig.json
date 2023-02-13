@@ -1,12 +1,16 @@
 {
   "compilerOptions": {
+    // When the module does not explicitly specify a default export.
     "allowSyntheticDefaultImports": true,
     "target": "ES6",
+    // Turning on noImplicitAny however TypeScript will issue an error whenever it would have inferred any:
     "noImplicitAny": true,
     "lib": ["dom", "dom.iterable", "esnext"],
+    // Allow JavaScript files to be imported inside your project, instead of just .ts and .tsx files
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
+    "strictBindCallApply": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "baseUrl": ".",
