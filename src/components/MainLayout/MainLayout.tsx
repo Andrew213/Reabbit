@@ -7,7 +7,7 @@ interface Props {
 }
 
 const MainLayout: React.FC<Props> = ({ children }) => {
-    return <h1> {children} </h1>;
+    return <h1 title="asd"> {children} </h1>;
 };
 
 export default MainLayout;
